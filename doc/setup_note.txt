@@ -1,0 +1,101 @@
+QAoffice creation memo
+
+1. Prepare the global (our project's) repository.
+    I signed in to github web site.  Then move to,
+        https://github.com/orgs/webdbhosei/dashboard
+    Here, I click [NEW] button right side at 'repositories',
+
+    Now I see "Create a new repository" page.
+    I input 'QAoffice' as the repository name,
+    clicked the 'public' button instead of 'private,'
+    and then, clicked the "Create repository" button.
+
+    Here, be CAREFUL. NEVER check to "initialize this repository
+    with a README."  If you create README file, you cannot "push"
+    your local repository to this global repository.
+
+    Now I am in the "webdbhosei/QAoffice" top page.
+    I go to the pull-down of "clone or download."
+    From "Clone with HTTPS" pop up, copy the project git URL from the
+    input box.  The file path is as the following;
+        https://github.com/webdbhosei/QAoffice.git
+
+    This path will be used to setup local git configuration.
+
+2. Create project
+    $ django-admin startproject QAoffice
+
+3. prepare virtual environment
+    Change your current directory to QAoffice, the project root.
+    $ cd QAoffice
+    Then, create virtual environment.
+    $ python -m venv qao_env
+
+   now get into the virtual environment.
+    $ source qao_env/bin/activate
+
+   The environment is empty, so prepare some necessary modules.
+    $ pip install --upgrade pip
+
+4. prepare 'requirements.txt'
+    Create 'requirements.txt' in the root(QAoffice) directory.
+
+    This file describes the necessary modules, so that other people can
+    install the modules without typing each module installation command.
+    Other people can install the necessary modules by only typing:
+        "pip install -r requirements.txt"
+
+    First added only the following:
+        pip==20.1.1
+        wheel
+        django
+    And then, typed the command:
+        $ pip install -r requirements.txt
+    Now, wheel and django had been installed, so check the version of
+    those modules, by typing the command:
+        $ pip list
+    and then, modified to specify the versions of modules.
+        wheel==0.34.2
+        django==3.0.7
+
+5. Now prepare the local git repository.
+    Type the command:
+        $ git init
+
+    Now, we want to avoid huge virtual environment libraries are included
+    in the repository, to waste memory.  Prepare .gitignore file.
+    Create '.gitignore' file in the root(QAoffice) directory.
+
+    Then, write only one line, in the file;
+        qao_env/
+    Now, these virtual environment directory will be excluded from the git
+    management.
+
+    Add rest of all the files to the git control.
+    Type the following command in the root directory.
+        $ git add .
+
+    Check if the local information is registered in the local git config.
+        $ git config --global --list
+    I have got the following response.
+        user.email=ikuo.kobayashi.XXXXX@hosei.ac.jp
+        user.name=Kobayashi Ikuo
+    OK.  I had registered myself.  If those two elements had not been replied,
+    type the following command respectively;
+        $ git config —global user.name YOUR_NAME_HERE
+        $ git config —global user.email YOUR_EMAIL_HERE
+
+    Now, the project is empty, but prepare the first commitment;
+        $ git commit -m 'first commitment'
+
+    Here, I added "this file" as setup_note.txt
+
+6. Register remote repository information to the local repository.
+    $ git remote add origin https://github.com/webdbhosei/QAoffice.git
+
+    Now, upload (push) local project to the github.
+
+    $ git push origin master
+
+    ---> Setup Done!
+

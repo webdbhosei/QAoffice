@@ -1,0 +1,66 @@
+Entry page creation memo
+
+1. generate skeleton.
+    $ python manage.py startapp entry
+
+2. Edit main urls.py
+    Edit QAoffice/urls.py
+    Added;
+        path('', include('entry.urls')),
+
+    Created entry/urls.py
+        --------------------------------------------------
+        # entry/urls.py
+        from django.urls import path
+
+        from . import views
+
+        urlpatterns = [
+            path('', views.index, name="index"),
+        ]
+        --------------------------------------------------
+
+3. Modified entry/views.py
+        --------------------------------------------------
+        # entry/views.py
+        from django.shortcuts import render
+
+
+        def index(request):
+            return render(request, 'entry/index.html')
+        --------------------------------------------------
+
+4. edit QAoffice/settings.py
+    Added entry to INSTALLED_APPS
+
+5. Created templates directly under QAoffice
+    * For this case, many students would add templates, so,
+      I guessed, main templates folder should be only one.
+
+    Created 'entry' directory in QAoffice/templates,
+    then created index.html in entry.
+        --------------------------------------------------
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>temporarily index - QAoffice</title>
+        </head>
+        <body>
+            <h2>Question and Answers - QAoffice</h2>
+
+        </body>
+        </html>
+        --------------------------------------------------
+
+    * Now let django recognize 'templates' directory directly
+      under the project root, edit 'settings.py,'
+        --------------------------------------------------
+        TEMPLATES = [
+            {
+                ....
+                'DIRS': ['templates'],
+                ....
+            }
+        ]
+        --------------------------------------------------
