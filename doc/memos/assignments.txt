@@ -1,0 +1,32 @@
+
+Model --> Database Design
+  relational Structure
+
+Students Assignment
+  Views : (Controlling Function)
+    Search - some questions which are Hashed.
+      hash                      - one person  -- 001 : Uemura
+      whole question statement/sentence （全文検索）
+                                - one person  -- 005 : Kobayashi
+  Authentication (統合認証)
+    -- borrow the Hosei's authentication
+          link to Hosei's authentication page, and
+      receive result from Hosei's page.
+                                - one person  --  11: Yoshitani
+  Screen:
+    base.html  <--- envelope
+                                - one person  --  004: Koizumi
+    Top Page Design:
+       Show the list of questions <--
+        tossed with the context name: 'questions'
+        conditions: tossed with the 'option' structure
+          design:               - one person  -- 09 : Nomura
+             ==> presentation only
+
+    Input page:
+      Question input page       - one person  -- Yamamoto
+      Answer input page         - one person  -- 101: Tao
+
+    Admin - Top page
+      design                    - one person  -- 010: Hasegawa
+
