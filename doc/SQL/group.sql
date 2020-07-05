@@ -1,0 +1,7 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(150) NOT NULL UNIQUE);
+INSERT INTO auth_group VALUES(1,'Student');
+INSERT INTO auth_group VALUES(2,'TA');
+INSERT INTO auth_group VALUES(3,'Teacher');
+COMMIT;

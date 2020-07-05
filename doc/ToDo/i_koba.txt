@@ -29,4 +29,13 @@ Ikuo Kobayashi's ToDo and Done List
   h. added path to index method in user/urls.py
 
 ----- ToDo -------------------
-4.
+4. Add tables to django admin
+  a. open user/admin.py, then added the following lines;
+      from user.models import Student, Teacher, Subject
+      admin.site.register(Student, Teacher, Subject)
+  b. open post/admin.py, then added the following lines;
+      from post.models import Question, Answer
+      admin.site.register(Question, Answer)
+
+5. Added one person:
+    Suzuki_Ichiro: password = Seatle_Mariners
