@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>temporarily index - QAoffice</title>
-</head>
-<body>
+{# Project: QA Office #}
+{# Entry #}
+
+{% extends "base.html" %}
+{% block title %} temporarily index - QAoffuce {% endblock %}
+{% block content %}
+
+<br>
+<div class="container">
+    <!-- Content -->
     <h2>Question and Answers - QAoffice</h2>
     <br />
     Our projects are under construction. <br /><br />
@@ -16,7 +19,7 @@
 
     <h4>Students' trial entries:</h4>
     <ul>
-        <li>KY-0141</li>
+        <li><a href="{% url 'ky_0141' %}">KY-0141</a></li>
         <li>WT-8101</li>
         <li>KU-0001</li>
         <li>KK-0004</li>
@@ -28,5 +31,9 @@
 
     <h4>Our project's main entrance:</h4>
     <b>TOP PAGE(UNDER CONSTRUCTION)</b><br />
+
+</div>
+{% endblock %}
+<body>
 </body>
 </html>

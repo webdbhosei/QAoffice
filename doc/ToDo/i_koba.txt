@@ -1,0 +1,41 @@
+Ikuo Kobayashi's ToDo and Done List
+
+----- Done -------------------
+1. design models.
+  a. describe database diagram
+  b. prepared class_diagram.pdf in doc folder
+  c. added the file to git: git add doc/class_diagram.pdf
+
+2. create new application: user
+  a. typed the following command:
+    $ python manage.py startapp user
+  b. on PyCharm, added 'user' folder to git
+  c. added Student class and Teacher class in models.py
+  d. added user to INSTALLED_APPS in QAoffice/settings.py
+  e. created urls.py for user (user/urls.py)
+  f. added 'url include' in QAoffice/urls.py
+  g. added index method in user/views.py
+  h. added path to index method in user/urls.py
+
+3. create new application: post
+  a. typed the following command:
+    $ python manage.py startapp post
+  b. on PyCharm, added 'post' folder to git
+  c. added Question class and Answer class in models.py
+  d. added post to INSTALLED_APPS in QAoffice/settings.py
+  e. created urls.py for post (user/urls.py)
+  f. added 'url include' in QAoffice/urls.py
+  g. added index method in user/views.py
+  h. added path to index method in user/urls.py
+
+----- ToDo -------------------
+4. Add tables to django admin
+  a. open user/admin.py, then added the following lines;
+      from user.models import Student, Teacher, Subject
+      admin.site.register(Student, Teacher, Subject)
+  b. open post/admin.py, then added the following lines;
+      from post.models import Question, Answer
+      admin.site.register(Question, Answer)
+
+5. Added one person:
+    Suzuki_Ichiro: password = Seatle_Mariners

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{# Project: QA Office #}
+
+<html lang="ja">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock %}</title>
+        {# --- css --- #}
+        <meta http-equiv="Content-Type" content="text/css">
+        <style type="text/css">
+            {% block extra_css %}{% endblock %}
+        </style>
+
+        <script language="javascript" type="text/javascript">
+            {% block extra_javascript %}{% endblock %}
+        </script>
+    </head>
+
+    <body>
+        This page should be arranged by Koizumi-san.<br />
+        <div class="container">
+            {% block content %}{% endblock %}
+            {% block pagination_footer %}{% endblock %}
+        </div>
+
+        {# --- js --- #}
+        {% block extra_js %}{% endblock %}
+    </body>
+</html>
