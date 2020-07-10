@@ -25,7 +25,7 @@ SECRET_KEY = 'ikd2x(k7gz(t2=z_g72&(vxi-k9nu0+_l0x&hxdg4kt6*pkq(c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.42.62']
 
 
 # Application definition
