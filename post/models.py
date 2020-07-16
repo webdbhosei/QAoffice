@@ -14,6 +14,7 @@ class Question(models.Model):
     subject = models.ForeignKey(Subject, verbose_name='科目', on_delete=models.SET_NULL, null=True)
     questioner = models.ForeignKey(MyUser, verbose_name='質問者', on_delete=models.SET_NULL, null=True)
     content = models.CharField(verbose_name='質問内容', max_length=1000, default='')
+    tag = models.CharField(verbose_name='タグ', max_length=20, default='')
 
 
 # Answer Table2020/7/7(Tue)

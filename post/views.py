@@ -23,17 +23,21 @@ class QuestionListView(generic.ListView):
 
     # ListView has 'object_list' default attribute, and it is set
     # by default.  However, it will select all questions.
-    # def get(self, request, *args, **kwargs):
-    #     context = self.get_context_data(**kwargs)
-    #     return render(request, self.template_name, context)
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return render(request, self.template_name, context)
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(QuestionListView, self).get_context_data(**kwargs)
-    #     chosen_question = Question.objects.filter(something=something)
-    #     context.update(
-    #        {'object_list': chosen_question},
-    #     )
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super(QuestionListView, self).get_context_data(**kwargs)
+        tag = self.kwargs.get('tag')
+        if tag is not None:
+            chosen_question = Question.objects.filter(tag=tag)
+        else:
+            chosen_question = Question.objects.all()
+        context.update(
+            {'object_list': chosen_question},
+        )
+        return context
 
 #
 # class QuestionListView(generic.ListView):
