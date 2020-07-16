@@ -16,7 +16,8 @@ class Question(models.Model):
     content = models.CharField(verbose_name='質問内容', max_length=1000, default='')
 
 
-# Answer Table
+# Answer Table2020/7/7(Tue)
+
 class Answer(models.Model):
     class Meta:
         verbose_name = 'Answer Table'

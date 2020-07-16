@@ -1,9 +1,10 @@
 from django.urls import path
 
-from . import views
+from post.views import QuestionListView, index
 
 app_name = 'post'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', index, name='index'),
+    path('questions', QuestionListView.as_view(), name='list_question'),
 ]

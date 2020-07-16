@@ -17,10 +17,31 @@ def index(request):
 #  <----- Searching Logic will be installed here: Uemura-san, and Kobayashi-san
 class QuestionListView(generic.ListView):
     model = Question
+    queryset = Question.objects.all()
+    template_name = "post/question_list.html"
+    success_url = "post:list_question"
 
-    def get_context_data(self, **kwargs):
-        context = super(QuestionListView, self).get_context_data(**kwargs)
-        return context
+    # ListView has 'object_list' default attribute, and it is set
+    # by default.  However, it will select all questions.
+    # def get(self, request, *args, **kwargs):
+    #     context = self.get_context_data(**kwargs)
+    #     return render(request, self.template_name, context)
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(QuestionListView, self).get_context_data(**kwargs)
+    #     chosen_question = Question.objects.filter(something=something)
+    #     context.update(
+    #        {'object_list': chosen_question},
+    #     )
+    #     return context
+
+#
+# class QuestionListView(generic.ListView):
+#     model = Question
+#
+#     def get_context_data(self, **kwargs):
+#         context = super(QuestionListView, self).get_context_data(**kwargs)
+#         return context
 
 
 class QuestionCreateView(generic.CreateView):
