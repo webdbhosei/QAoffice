@@ -15,7 +15,7 @@ def ry_0011_1(request):
     return render(request, 'entry/RY-0011.html')
 
 def ry_0011_2(request):
-    response = HttpResponse(open('templates/entry/RY-pdf/20t0011_Object_web_auth.pdf', 'rb').read(), content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="20t0011_Object_web_auth.pdf"'
+    response = HttpResponse(open('templates/entry/RY-pdf/Object_web_auth.pdf', 'rb').read(), content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="Object_web_auth.pdf"'
     return response
 
