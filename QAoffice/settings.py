@@ -26,6 +26,7 @@ SECRET_KEY = 'ikd2x(k7gz(t2=z_g72&(vxi-k9nu0+_l0x&hxdg4kt6*pkq(c'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['192.168.42.62', '127.0.0.1']
 
 
 # Application definition
