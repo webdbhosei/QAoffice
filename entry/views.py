@@ -19,3 +19,10 @@ def ry_0011_2(request):
     response['Content-Disposition'] = 'attachment; filename="Object_web_auth.pdf"'
     return response
 
+def yh_0010_1(request):
+    return render(request, 'entry/YH-0010.html')
+
+def yh_0010_2(request):
+    response = HttpResponse(open('templates/entry/YH-pdf/20t0010_admin.pdf', 'rb').read(), content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="20t0010_admin.pdf"'
+    return response
