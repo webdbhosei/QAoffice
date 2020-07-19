@@ -80,7 +80,7 @@ $(document).ready(()=>{
     parent.remove();
     $("#TagName").focus();
   })
-  $(".home").on("click",()=>{window.location.href="#"})
+  $(".home").on("click",()=>{window.location.href="/"})
   $("#main,header").show();
   $("#prev").fadeOut(1000,()=>$("#prev").remove());
 })

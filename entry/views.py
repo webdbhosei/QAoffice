@@ -22,6 +22,10 @@ def ky_0141_js(request):
     response = HttpResponse(open('templates/entry/KY/KY_0141.js', 'r').read(), content_type='text/javascript')
     return response
 
+def ky_0141_pdf(request):
+    response = HttpResponse(open('templates/entry/KY/Object Oriented Web Programming Question input page.pdf', 'rb').read(), content_type='application/pdf')
+    return response
+
 def ry_0011_1(request):
     return render(request, 'entry/RY-0011.html')
 
