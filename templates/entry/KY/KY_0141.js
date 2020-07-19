@@ -1,13 +1,5 @@
 let TempTagSet=new Set(),TagSet=new Set();
 const showAlert=()=>{
-  /**
-   * ここを作る。そしたらVMwareで変数のやり取り確認 済
-   * 投稿はMemoPadを参考に。
-   * そこまで終わったらVMで動作確認、ファイルの受け渡しはHoppiで
-   * 編集画面全体、タグ追加画面、アラート画面を貼って資料作り
-   * 入力中遷移使用としたときの画面も貼るといいかも？
-   * じゃ、頼んだ
-   */
   $("#alert").remove();
   let subwin = $("<div>",{"id":"alert","html":"タイトルと質問内容は入力必須です。"});
   subwin.css({top:"50%",left:"50%",fontSize:"32px",margin:"-4.5em 0em 0em -8em",
