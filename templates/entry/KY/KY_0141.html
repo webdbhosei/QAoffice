@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>QAoffice/Post Question</title>
+    <link rel="icon" href="QAoffice.ico">
+    <link rel="stylesheet" type="text/css"href="./KY_0141.css">
+  </head>
+  <body>
+    <header><label class="home"onclick="()=>window.location.href='/'">QAoffice</label></header>
+    <div id="prev">
+        <div>
+            <p><b>Loading...</b></p>
+        </div>
+    </div>
+    <div id="main">
+      <div id="TagEditor">
+        <input type="text"id="TagName"placeholder="追加したいタグを入力してください。"maxlength="15">
+        <div id="Tags"></div>
+        <div id="TagButtonWrapper">
+          <input type="button"id="TagSubmit"value="決定"class="button">
+          <input type="button"id="TagCancel"value="キャンセル"class="button">
+        </div>
+      </div>
+      <div id="QuestionForm">
+          <div id="QuestionTitleWrapper"class="wrapper"><input type="text"id="QuestionTitle"placeholder="タイトル"required></div>
+          <div id="QuestionContentWrapper"class="wrapper"><textarea id="QuestionContent" placeholder="質問内容を入力してください。"required=true></textarea></div>
+          <div id="QuestionButtonWrapper">
+            <input id="tagEdit"type="button"value="タグを編集"class="button">
+            <input id="QuestionSubmit"type="button"value="投稿"class="button">
+            <input id="QuestionCancel"type="button"value="キャンセル"class="button home">
+          </div>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script>
+      window.jQuery||document.write('<script type="text/javascript" src="jquery-3.4.1.min.js" charset="utf-8"><\/script>')
+    </script> -->
+    <script type="text/javascript"src="KY_0141.js"charset="utf-8"></script>
+  </body>
+</html>
