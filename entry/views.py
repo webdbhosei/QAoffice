@@ -19,7 +19,7 @@ def ky_0141_css(request):
     return response
 
 def ky_0141_js(request):
-    response = HttpResponse(open('templates/entry/KY/KY_0141.js', 'r').read(), content_type='text/javascript')
+    response = HttpResponse(open('templates/entry/KY/KY_0141.js', encoding='utf-8',mode='r').read(), content_type='text/javascript')
     return response
 
 def ky_0141_pdf(request):
