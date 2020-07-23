@@ -3,7 +3,7 @@
 <html lang="ja">
   <head>
     <title>QAoffice/Post Question</title>
-    <link rel="icon" href="{% static 'QAoffice.ico' %}">
+    <link rel="icon" href="{% static 'KY_0141.ico' %}">
     <link rel="stylesheet" type="text/css"href="{% static 'KY_0141.css' %}">
   </head>
   <body>
@@ -26,6 +26,7 @@
           <div id="QuestionTitleWrapper"class="wrapper"><input type="text"id="QuestionTitle"placeholder="タイトル"required></div>
           <div id="QuestionContentWrapper"class="wrapper"><textarea id="QuestionContent" placeholder="質問内容を入力してください。"required=true></textarea></div>
           <div id="QuestionButtonWrapper">
+            {% csrf_token %}
             <input id="tagEdit"type="button"value="タグを編集"class="button">
             <input id="QuestionSubmit"type="button"value="投稿"class="button">
             <input id="QuestionCancel"type="button"value="キャンセル"class="button home">
@@ -33,9 +34,9 @@
         </div>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script>
+    <script>
       window.jQuery||document.write('<script type="text/javascript" src="jquery-3.4.1.min.js" charset="utf-8"><\/script>')
-    </script> -->
+    </script>
     <script type="text/javascript"src="{% static 'KY_0141.js' %}"charset="utf-8"></script>
   </body>
 </html>

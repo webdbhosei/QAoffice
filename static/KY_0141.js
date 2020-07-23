@@ -1,11 +1,11 @@
 let TempTagSet=new Set(),TagSet=new Set();
-const showAlert=()=>{
+const showAlert=(message="注意")=>{
   $("#alert").remove();
-  let subwin = $("<div>",{"id":"alert","html":"タイトルと質問内容は入力必須です。"});
+  let subwin = $("<div>",{"id":"alert","html":message});
   subwin.css({top:"50%",left:"50%",fontSize:"32px",margin:"-4.5em 0em 0em -8em",
   position:"absolute",backgroundColor:"#fff",borderStyle:"groove",borderColor:"#e60033"})
   .appendTo($("body"))
-  .animate({opacity:"0"},{duration:"1200",easing:"swing"})
+  .animate({opacity:"0"},{duration:"2000",easing:"swing"})
 }
 const showTagEditor=()=>{
   TagSet.forEach(tag=>TempTagSet.add(tag));
@@ -41,15 +41,37 @@ const setTags=()=>{
   });
   $("#Tags").html(html.html());
 }
+const getCookie=(name)=> {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+
 const submitQuestion=()=>{
   if($("#QuestionTitle").val()==""||$("#QuestionContent").val()==""){
-    showAlert();
+    showAlert("タイトルと質問内容は入力必須です。");
     return;
   }
+  let data={'TITLE':$("#QuestionTitle").val(),'CONTENT':$("#QuestionContent").val(),'TAGS':JSON.stringify(TagSet)};
   let xhr = new XMLHttpRequest();
-  console.log(1);
+  xhr.open("POST","/ky0141/post");
+  xhr.setRequestHeader("X-CSRFToken",getCookie("csrftoken"));
+  xhr.send(data);
+  console.log(data);
 }
+
 $(document).ready(()=>{
+  $("input[name=csrfmiddlewaretoken]").attr({id:"csrf"});
   $("#QuestionSubmit").on("click",()=>{
     let content=$("#QuestionContent").val();
     submitQuestion();
