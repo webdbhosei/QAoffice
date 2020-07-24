@@ -49,6 +49,10 @@
                 padding: 10px;
                 padding-left: 40px;
             }
+
+            .header .icon{
+                text-decoration: none;
+            }
             /*primary-color変更*/
             .bg-primary {
                 background-color:#3F51B5 !important;
@@ -73,7 +77,7 @@
         
         <div class="header">
             <ul class="nav nav-tabs bg-primary fixed-top shadow">
-                    <a class="h2" href="#">QAoffice</a> 
+                    <a class="h2 icon" href="{% url 'index' %}" >QAoffice</a> 
             </ul>
         </div>
         <div class="container">
