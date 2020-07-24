@@ -46,6 +46,12 @@ class QuestionListView(generic.ListView):
 
 class QuestionCreateView(generic.CreateView):
     model = Question
+    template_name = "entry/KY/KY_0141.html"
+    success_url = "/"
+    fields = '__all__'
+    # def form_valid(self, form):
+    #     self.object = form.save(commit=False)
+    #     self.object.created
 
 
 class QuestionUpdateView(generic.UpdateView):

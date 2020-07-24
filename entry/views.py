@@ -31,6 +31,3 @@ def ky_0141_2(request):
 
 def ky_0141_pdf(request):
   return FileResponse(open('templates/entry/KY/Object Oriented Web Programming Question input page.pdf', 'rb'), content_type='application/pdf')
-
-def ky_0141_3(request):
-  return HttpResponse()

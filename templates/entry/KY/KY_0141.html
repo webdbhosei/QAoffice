@@ -22,16 +22,17 @@
           <input type="button"id="TagCancel"value="キャンセル"class="button">
         </div>
       </div>
-      <div id="QuestionForm">
-          <div id="QuestionTitleWrapper"class="wrapper"><input type="text"id="QuestionTitle"placeholder="タイトル"required></div>
-          <div id="QuestionContentWrapper"class="wrapper"><textarea id="QuestionContent" placeholder="質問内容を入力してください。"required=true></textarea></div>
-          <div id="QuestionButtonWrapper">
-            {% csrf_token %}
-            <input id="tagEdit"type="button"value="タグを編集"class="button">
-            <input id="QuestionSubmit"type="button"value="投稿"class="button">
-            <input id="QuestionCancel"type="button"value="キャンセル"class="button home">
-          </div>
+      <form id="QuestionForm">
+        <div id="QuestionTitleWrapper"class="wrapper"><input type="text"id="QuestionTitle"placeholder="タイトル"></div>
+        <div id="QuestionContentWrapper"class="wrapper"><textarea id="QuestionContent" placeholder="質問内容を入力してください。"></textarea></div>
+        <div id="QuestionButtonWrapper">
+          {% csrf_token %}
+          <input id="tagEdit"type="button"value="タグを編集"class="button">
+          <input id="QuestionSubmit"type="submit"value="投稿"class="button">
+          <input id="QuestionCancel"type="button"value="キャンセル"class="button home">
+          <input id="QuestionTags"type="hidden">
         </div>
+      </form>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
