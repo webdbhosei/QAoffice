@@ -1,4 +1,4 @@
-let TempTagSet=new Set(),TagSet=new Set();
+let TempTagSet=new Set(),TagSet=new Set(),posted=false;
 const showAlert=(message="注意")=>{
   $("#alert").remove();
   let subwin = $("<div>",{"id":"alert","html":message});
@@ -66,15 +66,18 @@ const submitQuestion=(event)=>{
     return false;
   }
   let data={'SUBJECT':$("#QuestionSubject").val(),'CONTENT':$("#QuestionContent").val(),'TAGS':JSON.stringify(TagSet)};
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST","post/question");
-  xhr.setRequestHeader("X-CSRFToken",getCookie("csrftoken"));
-  xhr.send(data);
+  // let xhr = new XMLHttpRequest();
+  // xhr.open("POST","post/question");
+  // xhr.setRequestHeader("X-CSRFToken",getCookie("csrftoken"));
+  // xhr.send(data);
+  posted = true;
   console.log(data);
   return true;
 }
 
 $(document).ready(()=>{
+  $("#QuestionContentWrapper").children().attr({'id':"QuestionContent",'placeholder':"質問内容を入力してください。"});
+  $("#QuestionSubjectWrapper input").attr({'id':"QuestionSubject",'placeholder':'科目'});
   $("#QuestionForm").on("submit",submitQuestion)
   $("#tagEdit").on("click",()=>{
     showTagEditor();
@@ -101,7 +104,7 @@ $(document).ready(()=>{
 })
 
 $(window).on("beforeunload",()=>{
-  if($("#QuestionSubject").val()||$("#QuestionContent").val()){
+  if(!posted&&($("#QuestionSubject").val()||$("#QuestionContent").val())){
     return "ページ遷移確認";
   }
 })
