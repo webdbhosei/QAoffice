@@ -7,27 +7,87 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        
+        {#---BootStrap by koizumi---#}
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        
         <title>{% block title %}{% endblock %}</title>
-        {# --- css --- #}
+        {# --- css by koizumi--- #}
         <meta http-equiv="Content-Type" content="text/css">
         <style type="text/css">
-            {% block extra_css %}{% endblock %}
+            {% block extra_css %}
+            .container{
+                font-size: 32px;
+                margin:70px auto;
+                font-family: Arial, Helvetica, sans-serif;
+                
+                /*text-align:center;*/
+            }
+            .container h2{
+                font-size: 72px;
+                margin-bottom: 130px;
+                font-weight: normal;
+                color: #3F51B5;
+            }
+            .container a{
+                color: #3F51B5;
+            }
+           
+            .container ul{
+                list-style: none;
+            }
+            .TopPageUl li{
+                position: relative;
+                left: -36px;
+            }
+            .header{
+                color:white;
+                padding-top: 60px;
+                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, .3); 
+            }
+            .header .h2 {
+                padding: 10px;
+                padding-left: 40px;
+            }
+            /*primary-color変更*/
+            .bg-primary {
+                background-color:#3F51B5 !important;
+            }
+            /*a.bg-primary:hover, a.bg-primary:focus,
+            button.bg-primary:hover,
+            button.bg-primary:focus {
+                background-color: #0062cc !important;
+            }*/
+            {% endblock %}
         </style>
 
         <script language="javascript" type="text/javascript">
-            {% block extra_javascript %}{% endblock %}
+            {% block extra_javascript %}
+            {% endblock %}
         </script>
     </head>
 
     <body>
-        This page should be arranged by Koizumi-san.<br />
+        <!--This page should be arranged by Koizumi-san.<br />-->
+        {#---nav bar---#}
+        
+        <div class="header">
+            <ul class="nav nav-tabs bg-primary fixed-top shadow">
+                    <a class="h2" href="#">QAoffice</a> 
+            </ul>
+        </div>
         <div class="container">
             {% block content %}{% endblock %}
             {% block pagination_footer %}{% endblock %}
         </div>
-
         {# --- js --- #}
-        {% block extra_js %}{% endblock %}
+        {% block extra_js %}
+            {#---BootStrap by koizumi---#}
+            {#--- Optional JavaScript ---#}
+            {#---jQuery first, then Popper.js, then Bootstrap JS---#}
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
 </html>
