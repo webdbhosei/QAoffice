@@ -61,11 +61,11 @@ const getCookie=(name)=> {
 const submitQuestion=(event)=>{
   event.stopPropagation();
   console.log(0);
-  if($("#QuestionTitle").val()==""||$("#QuestionContent").val()==""){
+  if(!$("#QuestionSubject").val()||!$("#QuestionContent").val()){
     showAlert("タイトルと質問内容は入力必須です。");
     return false;
   }
-  let data={'TITLE':$("#QuestionTitle").val(),'CONTENT':$("#QuestionContent").val(),'TAGS':JSON.stringify(TagSet)};
+  let data={'SUBJECT':$("#QuestionSubject").val(),'CONTENT':$("#QuestionContent").val(),'TAGS':JSON.stringify(TagSet)};
   let xhr = new XMLHttpRequest();
   xhr.open("POST","post/question");
   xhr.setRequestHeader("X-CSRFToken",getCookie("csrftoken"));
@@ -101,7 +101,7 @@ $(document).ready(()=>{
 })
 
 $(window).on("beforeunload",()=>{
-  if($("#QuestionTitle").val()!=""||$("#QuestionContent").val()!=""){
+  if($("#QuestionSubject").val()||$("#QuestionContent").val()){
     return "ページ遷移確認";
   }
 })

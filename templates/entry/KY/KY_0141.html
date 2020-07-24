@@ -23,8 +23,14 @@
         </div>
       </div>
       <form id="QuestionForm">
-        <div id="QuestionTitleWrapper"class="wrapper"><input type="text"id="QuestionTitle"placeholder="タイトル"></div>
-        <div id="QuestionContentWrapper"class="wrapper"><textarea id="QuestionContent" placeholder="質問内容を入力してください。"></textarea></div>
+        <div id="QuestionSubjectWrapper"class="wrapper">
+          <input type="text"id="QuestionSubject"placeholder="科目">
+          <!-- {{form.subject}} -->
+        </div>
+        <div id="QuestionContentWrapper"class="wrapper">
+          <!-- <textarea id="QuestionContent" placeholder="質問内容を入力してください。"></textarea> -->
+          {{form.content}}
+        </div>
         <div id="QuestionButtonWrapper">
           {% csrf_token %}
           <input id="tagEdit"type="button"value="タグを編集"class="button">

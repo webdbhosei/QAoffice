@@ -1,5 +1,6 @@
 qao_env/
 db.sqlite3
+post/forms
 .idea/
 QAoffice/__pycache__/
 entry/__pycache__/

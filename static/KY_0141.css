@@ -89,7 +89,7 @@ header label{
   left:50%;
   margin: 0em -20em;
 }
-#QuestionForm #QuestionContent,#QuestionTitle{
+#QuestionForm #QuestionContent,#QuestionSubject{
   font-size: 32px;
   margin:5px 0px;
   border-radius: 5px;
@@ -103,7 +103,7 @@ header label{
   resize: vertical;
   max-height:24em;
 }
-#QuestionTitle{
+#QuestionSubject{
   width:20em;
   height:1em;
   resize:vertical;
