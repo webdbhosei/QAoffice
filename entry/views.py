@@ -26,8 +26,5 @@ def yh_0010_2(request):
 def ky_0141_1(request):
     return render(request, 'entry/KY-0141.html')
 
-def ky_0141_2(request):
-    return render(request, 'post/question')
-
 def ky_0141_pdf(request):
   return FileResponse(open('templates/entry/KY/Object Oriented Web Programming Question input page.pdf', 'rb'), content_type='application/pdf')
