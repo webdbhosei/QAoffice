@@ -1,4 +1,4 @@
-let TempTagSet=new Set(),TagSet=new Set();
+let TempTagSet=new Set(),TagSet=new Set(),posted=false;
 const showAlert=(message="注意")=>{
   $("#alert").remove();
   let subwin = $("<div>",{"id":"alert","html":message});
@@ -42,39 +42,41 @@ const setTags=()=>{
   $("#Tags").html(html.html());
 }
 
-const getCookie=(name)=> {
-  var cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-      var cookies = document.cookie.split(';');
-      for (var i = 0; i < cookies.length; i++) {
-          var cookie = jQuery.trim(cookies[i]);
-          // Does this cookie string begin with the name we want?
-          if (cookie.substring(0, name.length + 1) === (name + '=')) {
-              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-              break;
-          }
-      }
-  }
-  return cookieValue;
-}
+// const getCookie=(name)=> {
+//   var cookieValue = null;
+//   if (document.cookie && document.cookie !== '') {
+//       var cookies = document.cookie.split(';');
+//       for (var i = 0; i < cookies.length; i++) {
+//           var cookie = jQuery.trim(cookies[i]);
+//           // Does this cookie string begin with the name we want?
+//           if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//               cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//               break;
+//           }
+//       }
+//   }
+//   return cookieValue;
+// }
 
 const submitQuestion=(event)=>{
   event.stopPropagation();
-  console.log(0);
-  if($("#QuestionTitle").val()==""||$("#QuestionContent").val()==""){
+  if(!$("#id_subject").val()||!$("#QuestionContent").val()){
     showAlert("タイトルと質問内容は入力必須です。");
     return false;
   }
-  let data={'TITLE':$("#QuestionTitle").val(),'CONTENT':$("#QuestionContent").val(),'TAGS':JSON.stringify(TagSet)};
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST","post/question");
-  xhr.setRequestHeader("X-CSRFToken",getCookie("csrftoken"));
-  xhr.send(data);
+  let data={'SUBJECT':$("#QuestionSubject").val(),'CONTENT':$("#QuestionContent").val(),'TAGS':JSON.stringify(TagSet)};
+  // let xhr = new XMLHttpRequest();
+  // xhr.open("POST","post/question");
+  // xhr.setRequestHeader("X-CSRFToken",getCookie("csrftoken"));
+  // xhr.send(data);
+  posted = true;
   console.log(data);
   return true;
 }
 
 $(document).ready(()=>{
+  $("#QuestionContentWrapper").children().attr({'id':"QuestionContent",'placeholder':"質問内容を入力してください。"});
+  // $("#QuestionSubject").attr({'type':"hidden",'value':'Temporary subject'})
   $("#QuestionForm").on("submit",submitQuestion)
   $("#tagEdit").on("click",()=>{
     showTagEditor();
@@ -101,7 +103,7 @@ $(document).ready(()=>{
 })
 
 $(window).on("beforeunload",()=>{
-  if($("#QuestionTitle").val()!=""||$("#QuestionContent").val()!=""){
+  if(!posted&&($("#id_subject").val()||$("#QuestionContent").val())){
     return "ページ遷移確認";
   }
 })

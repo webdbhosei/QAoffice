@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import generic
 
-from .models import Question, Answer
+from post.models import Question, Answer
 
 
 def index(request):
@@ -47,11 +47,20 @@ class QuestionListView(generic.ListView):
 class QuestionCreateView(generic.CreateView):
     model = Question
     template_name = "entry/KY/KY_0141.html"
-    success_url = "/"
-    fields = '__all__'
-    # def form_valid(self, form):
-    #     self.object = form.save(commit=False)
-    #     self.object.created
+    success_url = "post:list_question"
+    fields = ['content','subject']
+    object = None
+
+    def form_valid(self, form):
+        print("form_valid")
+        self.object=form.save(commit=False)
+        # self.object.questioner="Someone"
+        self.object.save()
+
+        return redirect('post:list_question')
+
+    # def post(self, request, *args, **kwargs):
+    #     return redirect('post:list_question')
 
 
 class QuestionUpdateView(generic.UpdateView):
