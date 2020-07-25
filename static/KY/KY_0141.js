@@ -42,25 +42,24 @@ const setTags=()=>{
   $("#Tags").html(html.html());
 }
 
-const getCookie=(name)=> {
-  var cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-      var cookies = document.cookie.split(';');
-      for (var i = 0; i < cookies.length; i++) {
-          var cookie = jQuery.trim(cookies[i]);
-          // Does this cookie string begin with the name we want?
-          if (cookie.substring(0, name.length + 1) === (name + '=')) {
-              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-              break;
-          }
-      }
-  }
-  return cookieValue;
-}
+// const getCookie=(name)=> {
+//   var cookieValue = null;
+//   if (document.cookie && document.cookie !== '') {
+//       var cookies = document.cookie.split(';');
+//       for (var i = 0; i < cookies.length; i++) {
+//           var cookie = jQuery.trim(cookies[i]);
+//           // Does this cookie string begin with the name we want?
+//           if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//               cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//               break;
+//           }
+//       }
+//   }
+//   return cookieValue;
+// }
 
 const submitQuestion=(event)=>{
   event.stopPropagation();
-  console.log(0);
   if(!$("#QuestionSubject").val()||!$("#QuestionContent").val()){
     showAlert("タイトルと質問内容は入力必須です。");
     return false;
@@ -77,7 +76,8 @@ const submitQuestion=(event)=>{
 
 $(document).ready(()=>{
   $("#QuestionContentWrapper").children().attr({'id':"QuestionContent",'placeholder':"質問内容を入力してください。"});
-  $("#QuestionSubjectWrapper input").attr({'id':"QuestionSubject",'placeholder':'科目'});
+  // $("#QuestionSubjectWrapper input").attr({'id':"QuestionSubject",'placeholder':'科目'});
+  $("#QuestionSubject").attr({'type':"hidden",'value':'Temporary subject'})
   $("#QuestionForm").on("submit",submitQuestion)
   $("#tagEdit").on("click",()=>{
     showTagEditor();

@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from django.views import generic
 
 from post.models import Question, Answer
-# from post.forms.question.form import QuestionForm
 
+from django.shortcuts import redirect
 
 def index(request):
     return HttpResponse("Welcome to QA Office.<br/>"
@@ -47,18 +47,20 @@ class QuestionListView(generic.ListView):
 
 class QuestionCreateView(generic.CreateView):
     model = Question
-    # form_class = QuestionForm
     template_name = "entry/KY/KY_0141.html"
-    success_url = "/"
+    success_url = "post:list_question"
     fields = ['content','subject']
     object = None
 
     def form_valid(self, form):
+        print("form_valid")
         self.object = form.save(commit=False)
-        self.object.created
         self.object.save()
 
-        return redirect('/')
+        return redirect('post:list_question')
+
+    # def post(self, request, *args, **kwargs):
+    #     return redirect('post:list_question')
 
 
 class QuestionUpdateView(generic.UpdateView):
