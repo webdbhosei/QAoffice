@@ -77,6 +77,7 @@ const submitQuestion=(event)=>{
 $(document).ready(()=>{
   $("#QuestionContentWrapper").children().attr({'id':"QuestionContent",'placeholder':"質問内容を入力してください。"});
   // $("#QuestionSubject").attr({'type':"hidden",'value':'Temporary subject'})
+  $("#id_subject option").first().html('選択してください').attr({'hidden':true});
   $("#QuestionForm").on("submit",submitQuestion)
   $("#tagEdit").on("click",()=>{
     showTagEditor();
