@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import generic
 
 from post.models import Question, Answer
 
-from django.shortcuts import redirect
 
 def index(request):
     return HttpResponse("Welcome to QA Office.<br/>"
@@ -54,7 +53,8 @@ class QuestionCreateView(generic.CreateView):
 
     def form_valid(self, form):
         print("form_valid")
-        self.object = form.save(commit=False)
+        self.object=form.save(commit=False)
+        # self.object.questioner="Someone"
         self.object.save()
 
         return redirect('post:list_question')

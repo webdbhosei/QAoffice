@@ -60,7 +60,7 @@ const setTags=()=>{
 
 const submitQuestion=(event)=>{
   event.stopPropagation();
-  if(!$("#QuestionSubject").val()||!$("#QuestionContent").val()){
+  if(!$("#id_subject").val()||!$("#QuestionContent").val()){
     showAlert("タイトルと質問内容は入力必須です。");
     return false;
   }
@@ -76,8 +76,7 @@ const submitQuestion=(event)=>{
 
 $(document).ready(()=>{
   $("#QuestionContentWrapper").children().attr({'id':"QuestionContent",'placeholder':"質問内容を入力してください。"});
-  // $("#QuestionSubjectWrapper input").attr({'id':"QuestionSubject",'placeholder':'科目'});
-  $("#QuestionSubject").attr({'type':"hidden",'value':'Temporary subject'})
+  // $("#QuestionSubject").attr({'type':"hidden",'value':'Temporary subject'})
   $("#QuestionForm").on("submit",submitQuestion)
   $("#tagEdit").on("click",()=>{
     showTagEditor();
@@ -104,7 +103,7 @@ $(document).ready(()=>{
 })
 
 $(window).on("beforeunload",()=>{
-  if(!posted&&($("#QuestionSubject").val()||$("#QuestionContent").val())){
+  if(!posted&&($("#id_subject").val()||$("#QuestionContent").val())){
     return "ページ遷移確認";
   }
 })
