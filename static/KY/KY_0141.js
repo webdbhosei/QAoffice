@@ -1,4 +1,5 @@
 let TempTagSet=new Set(),TagSet=new Set(),posted=false;
+let Canceld = false,unload=false;
 const showAlert=(message="注意")=>{
   $("#alert").remove();
   let subwin = $("<div>",{"id":"alert","html":message});
@@ -96,9 +97,9 @@ $(document).ready(()=>{
     parent.remove();
     $("#TagName").focus();
   })
-  $(".home").on("click",()=>{window.location.href="/"}).attr({'title':"indexページにジャンプします。"});
-  $(".list").on("click",()=>{window.location.href="/post/questions"}).attr({'title':"質問一覧にジャンプします。"});
-  $("#QuestionCancel").on("click",()=>history.back()).attr({'title':"前のページに戻る。"});
+  $(".home").on("click",()=>{window.location.href="/"}).attr({'title':"indexページに飛びます。"});
+  $(".list").on("click",()=>{window.location.href="/post/questions"}).attr({'title':"質問一覧に飛びます。"});
+  $("#QuestionCancel").on("click",()=>{history.back();setTimeout(()=>window.location.href='/post/questions',500);}).attr({'title':"キャンセル"});
   $("#main,header").show();
   $("#prev").fadeOut(1000,()=>$("#prev").remove());
 })
