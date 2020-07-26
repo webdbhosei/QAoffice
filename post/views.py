@@ -52,19 +52,26 @@ class QuestionCreateView(generic.CreateView):
     object = None
 
     def form_valid(self, form):
-        print("form_valid")
         self.object=form.save(commit=False)
         # self.object.questioner="Someone"
         self.object.save()
 
         return redirect('post:list_question')
 
-    # def post(self, request, *args, **kwargs):
-    #     return redirect('post:list_question')
-
 
 class QuestionUpdateView(generic.UpdateView):
     model = Question
+    template_name = "entry/KY/KY_0141.html"
+    success_url = "post:list_question"
+    fields = ['content', 'subject']
+    object = None
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+
+        return redirect('post:list_question')
+
 
 
 # ToDo: classes to register Answers
