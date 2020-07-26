@@ -1,5 +1,4 @@
 let TempTagSet=new Set(),TagSet=new Set(),posted=false;
-let Canceld = false,unload=false;
 const showAlert=(message="注意")=>{
   $("#alert").remove();
   let subwin = $("<div>",{"id":"alert","html":message});
