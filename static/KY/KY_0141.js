@@ -59,9 +59,8 @@ const setTags=()=>{
 // }
 
 const submitQuestion=(event)=>{
-  event.stopPropagation();
   if(!$("#id_subject").val()||!$("#QuestionContent").val()){
-    showAlert("タイトルと質問内容は入力必須です。");
+    showAlert("科目と質問内容は入力必須です。");
     return false;
   }
   let data={'SUBJECT':$("#QuestionSubject").val(),'CONTENT':$("#QuestionContent").val(),'TAGS':JSON.stringify(TagSet)};
@@ -77,6 +76,8 @@ const submitQuestion=(event)=>{
 $(document).ready(()=>{
   $("#QuestionContentWrapper").children().attr({'id':"QuestionContent",'placeholder':"質問内容を入力してください。"});
   // $("#QuestionSubject").attr({'type':"hidden",'value':'Temporary subject'})
+  $("#id_subject option").first().html('選択してください').attr({'hidden':true});
+  $("#QuestionContent").on("keydown",ev=>{if(ev.keyCode==13)$("#QuestionForm").submit();});
   $("#QuestionForm").on("submit",submitQuestion)
   $("#tagEdit").on("click",()=>{
     showTagEditor();
@@ -87,9 +88,7 @@ $(document).ready(()=>{
     $("#QuestionTags").val(JSON.stringify(TagSet));
     hideTagEditor();
   })
-  $("#TagCancel").on("click",()=>{
-    hideTagEditor();
-  })
+  $("#TagCancel").on("click",()=>hideTagEditor());
   $("#Tags").on("click",".removetag",(event)=>{
     event.stopPropagation();
     let parent=event.target.parentNode;
@@ -97,7 +96,9 @@ $(document).ready(()=>{
     parent.remove();
     $("#TagName").focus();
   })
-  $(".home").on("click",()=>{window.location.href="/"})
+  $(".home").on("click",()=>{window.location.href="/"}).attr({'title':"indexページに飛びます。"});
+  $(".list").on("click",()=>{window.location.href="/post/questions"}).attr({'title':"質問一覧に飛びます。"});
+  $("#QuestionCancel").on("click",()=>{history.back();setTimeout(()=>window.location.href='/post/questions',500);}).attr({'title':"キャンセル"});
   $("#main,header").show();
   $("#prev").fadeOut(1000,()=>$("#prev").remove());
 })
