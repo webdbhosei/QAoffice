@@ -7,7 +7,10 @@
     <link rel="stylesheet" type="text/css"href="{% static 'KY/KY_0141.css' %}">
   </head>
   <body>
-    <header><label class="home"onclick="()=>window.location.href='/'">QAoffice</label></header>
+    <header>
+      <label class="home">QAoffice</label>
+      <label class="list">📃</label>
+    </header>
     <div id="prev">
         <div>
             <p><b>Loading...</b></p>
@@ -35,7 +38,7 @@
           {% csrf_token %}
           <input id="tagEdit"type="hidden"value="タグを編集"class="button">
           <input id="QuestionSubmit"type="submit"value="投稿"class="button">
-          <input id="QuestionCancel"type="button"value="キャンセル"class="button home">
+          <input id="QuestionCancel"type="button"value="キャンセル"class="button list">
           <input id="QuestionTags"type="hidden">
         </div>
       </form>
