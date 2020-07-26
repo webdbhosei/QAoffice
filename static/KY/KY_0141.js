@@ -98,6 +98,7 @@ $(document).ready(()=>{
   })
   $(".home").on("click",()=>{window.location.href="/"}).attr({'title':"indexページにジャンプします。"});
   $(".list").on("click",()=>{window.location.href="/post/questions"}).attr({'title':"質問一覧にジャンプします。"});
+  $("#QuestionCancel").on("click",()=>history.back()).attr({'title':"前のページに戻る。"});
   $("#main,header").show();
   $("#prev").fadeOut(1000,()=>$("#prev").remove());
 })
