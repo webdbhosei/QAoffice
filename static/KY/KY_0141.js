@@ -98,7 +98,7 @@ $(document).ready(()=>{
     parent.remove();
     $("#TagName").focus();
   })
-  $(".home").on("click",()=>{window.location.href="/"})
+  $(".home").on("click",()=>{window.location.href="post:list_question"})
   $("#main,header").show();
   $("#prev").fadeOut(1000,()=>$("#prev").remove());
 })

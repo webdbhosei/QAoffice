@@ -31,9 +31,9 @@
           <!-- <textarea id="QuestionContent" placeholder="質問内容を入力してください。"></textarea> -->
           {{form.content}}
         </div>
-        <div id="QuestionButtonWrapper">
+        <div id="QuestionButtonWrapper"class="wrapper">
           {% csrf_token %}
-          <input id="tagEdit"type="button"value="タグを編集"class="button">
+          <input id="tagEdit"type="hidden"value="タグを編集"class="button">
           <input id="QuestionSubmit"type="submit"value="投稿"class="button">
           <input id="QuestionCancel"type="button"value="キャンセル"class="button home">
           <input id="QuestionTags"type="hidden">
