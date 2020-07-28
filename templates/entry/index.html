@@ -8,10 +8,23 @@
 <br>
 <div class="container">
     <!-- Content -->
-    <h2>Question and Answers - QAoffice</h2>
+    <h2 class="topPageTitle">Question and Answers - QAoffice</h2>
     <br />
+    <b>Login Page</b><br/>
+    If you use QAoffice, you have to login your account.
+    <br/>
+    <br/>
+    <button type="button" class="btn-login btn btn-outline btn-lg">Login</button><br>
+    <br/>
+    <b>Question Post and Question List Page:</b><br>
+    <a href="#" class="TopPageLink">QuestionList</a><br>
+    <a href="{% url 'ky_0141_2' %}" class="TopPageLink">Question Post</a>
+    <br/>
+    
+    <br/>
+    <br/>
     <b>Our projects are under construction. </b><br /><br />
-
+    
     <b>ToDo Next:</b><br />
         1) Sign in/ Sign out authentication<br />
         2) Each student creates own entry page, and then,<br />
@@ -23,7 +36,7 @@
         <li><a href="{% url 'ky_0141' %}">KY-0141</a></li>
         <li>WT-8101</li>
         <li>KU-0001</li>
-        <li>KK-0004</li>
+        <li><a href="#">KK-0004</a></li>
         <li>JK-005</li>
         <li>IN-0009</li>
         <li><a href="{% url 'yh_0010' %}">YH-0010</a></li>
@@ -33,7 +46,8 @@
     <br>
     <b>Our project's main entrance:</b><br>
     <b>TOP PAGE(UNDER CONSTRUCTION)</b><br />
-    <a href="../post/" class="TopPageLink">TopPage</a>
+    <!--<a href="/post" class="TopPageLink">QuestionList</a><br>
+    <a href="{% url 'ky_0141_2' %}" class="TopPageLink">Question Post</a>-->
 
 </div>
 {% endblock %}
