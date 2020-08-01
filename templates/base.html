@@ -29,6 +29,7 @@
                 font-weight: normal;
                 color: #3F51B5;
             }
+
             .container a{
                 color: #3F51B5;
             }
@@ -42,25 +43,24 @@
             }
             .header{
                 color:white;
-                /*padding-top: 60px;
-                box-shadow: 0 4px 6px 0 rgba(0, 0, 0, .3); */
                 position:fixed;
                 text-decoration: none;
+                z-index:10 ;
             }
-            
             .header .icon{
             }
-
             .header .icon:hover{
                 color:rgb(20, 28, 73) ;
                 text-decoration: none;
             }
-
             .header .list {
                 margin-top: 5px;
                 margin-left: 40px;
+                @media(max-width: 480px;){
+                    display: none;
+                    color:rgb(0,0,0)
+                }
             }
-
             .header .list:hover{
                 color:rgb(20, 28, 73) ;
                 text-decoration: none;
@@ -92,7 +92,6 @@
             .bg-primary:hover{
                 background-color:#3F51B5 !important;
             }
-
             /*loginボダンのcolorを変更*/
             .container button {
                 color:#3F51B5 !important;
@@ -100,6 +99,39 @@
             /*loginボタンのsizeを変更*/
             .container .btn-login{
                 padding:10px 50px;
+            }
+
+            /*menuIcon(896px以上は非表示)*/
+            .menu-icon{
+                display: none;
+                color: white;
+                font-size: 20px;
+            }
+            .menu-icon:focus{
+                color:rgb(20, 28, 73)!important;
+            }
+            .dropdown-menu{
+                font-size: 32px;
+            }
+            .header .btn-group{
+                display: none;
+                margin-right: 100px;
+            }
+            /*media-query*/
+            @media(max-width: 896px){
+                .container .topPageTitle{font-size:60px;}
+                .icon{
+                    display: none;
+                }
+                .header .login{
+                    display: none; 
+                }
+                .header .list{
+                    display: none;
+                }
+                .header .btn-group{
+                    display: inline-block;
+                }
             }
             /*a.bg-primary:hover, a.bg-primary:focus,
             button.bg-primary:hover,
@@ -120,10 +152,25 @@
         {#---nav bar---#}
         <div class="header">
             <nav class="navbar  bg-primary fixed-top shadow ">
+                <div class="btn-group">
+                    <button type="button" class="menu-icon btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Menu
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="buttonMenu1">
+                      <a class="dropdown-item" href="{% url 'index' %}">Home</a>
+                      <a class="dropdown-item" href="#">Login</a>
+                      <a class="dropdown-item" href="{% url 'ky_0141_2' %}">Question Post</a>
+                      <a class="dropdown-item" href="#">Question List</a>
+                      <a class="dropdown-item" href="#">Setting</a>
+                      <a class="dropdown-item" href="#">Help</a>
+                    </div>
+                </div class="nav-list">
                     <a class="h2 icon" href="{% url 'index' %}" >QAoffice</a> 
                     <ul class="nav nav-tabs">
                         <a class="h5 list" href="{% url 'ky_0141_2' %}" class="TopPageLink">Question Post</a>
                         <a class="h5 list" href="#" >QuestionList</a>
+                        <a class="h5 list" href="#">Setting</a>
+                        <a class="h5 list" href="#">Help</a>
                         <a class="h5 login" href="#" >LOGIN</a>
                     </ul>
             </nav>
