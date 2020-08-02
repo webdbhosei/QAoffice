@@ -47,8 +47,6 @@
                 text-decoration: none;
                 z-index:10 ;
             }
-            .header .icon{
-            }
             .header .icon:hover{
                 color:rgb(20, 28, 73) ;
                 text-decoration: none;
@@ -100,7 +98,6 @@
             .container .btn-login{
                 padding:10px 50px;
             }
-
             /*menuIcon(896px以上は非表示)*/
             .menu-icon{
                 display: none;
@@ -133,11 +130,6 @@
                     display: inline-block;
                 }
             }
-            /*a.bg-primary:hover, a.bg-primary:focus,
-            button.bg-primary:hover,
-            button.bg-primary:focus {
-                background-color: #0062cc !important;
-            }*/
             {% endblock %}
         </style>
 
@@ -149,10 +141,11 @@
 
     <body>
         <!--This page should be arranged by Koizumi-san.<br />-->
-        {#---nav bar---#}
+        {#---nav bar by koizumi---#}
         <div class="header">
             <nav class="navbar  bg-primary fixed-top shadow ">
                 <div class="btn-group">
+                    {#---MenuButton widthが896px以下のときのみ表示---#}
                     <button type="button" class="menu-icon btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Menu
                     </button>
