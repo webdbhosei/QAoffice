@@ -5,24 +5,11 @@
 {% block title %} temporarily index - QAoffuce {% endblock %}
 {% block content %}
 
+<!-- Content 一部文字の内容、sizeやCSSを変更しました by koizumi-->
 <br>
 <div class="container">
-    <!-- Content -->
     <h2 class="topPageTitle">Question and Answers - QAoffice</h2>
     <br />
-    <b>Login Page</b><br/>
-    If you use QAoffice, you have to login your account.
-    <br/>
-    <br/>
-    <button type="button" class="btn-login btn btn-outline btn-lg">Login</button><br>
-    <br/>
-    <b>Question Post and Question List Page:</b><br>
-    <a href="#" class="TopPageLink">QuestionList</a><br>
-    <a href="{% url 'ky_0141_2' %}" class="TopPageLink">Question Post</a>
-    <br/>
-    
-    <br/>
-    <br/>
     <b>Our projects are under construction. </b><br /><br />
     
     <b>ToDo Next:</b><br />
@@ -30,25 +17,20 @@
         2) Each student creates own entry page, and then,<br />
             link to the home from here.<br /><br />
     <b>Students' trial entries:</b>
-
     
     <ul class="TopPageUl">
         <li><a href="{% url 'ky_0141' %}">KY-0141</a></li>
         <li>WT-8101</li>
         <li>KU-0001</li>
-        <li><a href="#">KK-0004</a></li>
+        <li>KK-0004</li>
         <li>JK-005</li>
         <li>IN-0009</li>
         <li><a href="{% url 'yh_0010' %}">YH-0010</a></li>
         <li><a href="{% url 'ry_0011' %}">RY-0011</a></li>
     </ul>
-    
     <br>
     <b>Our project's main entrance:</b><br>
     <b>TOP PAGE(UNDER CONSTRUCTION)</b><br />
-    <!--<a href="/post" class="TopPageLink">QuestionList</a><br>
-    <a href="{% url 'ky_0141_2' %}" class="TopPageLink">Question Post</a>-->
-
 </div>
 {% endblock %}
 <body>
