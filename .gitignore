@@ -8,4 +8,5 @@ post/__pycache__/
 post/migrations/__pycache__/
 user/__pycache__/
 user/migrations/__pycache__/
+post/forms
 

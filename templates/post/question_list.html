@@ -24,7 +24,7 @@
                         <td>{{ question.content }}</td>
                         <td>{{ question.subject.title }}</td>
                         <td>{{ question.questioner.username }}</td>
-                        <td align="center">Edit</td>
+                        <td align="center"><a id="edit_btn"href="{% url 'post:edit_question' pk=question.id %}">Edit</a></td>
                         <td align="center">?????</td>
                     </tr>
                     {% endfor %}
@@ -32,6 +32,6 @@
             </table>
         {% endif %}
         <br>
-        [New Question Button]<br />
+        <a href="{% url 'post:create_question' %}">[New Question Button]</a><br />
     </div>
 {% endblock content %}
