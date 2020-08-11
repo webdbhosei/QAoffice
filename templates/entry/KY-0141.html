@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}KY-0141 index page {% endblock %}
+
+{% block content %}
+
+<div style="position: absolute;top: 50%;left: 50%; margin: 1em 0 0 -5em;">
+  <h2>This is index page.</h2>
+<div> <a href="{%url 'ky_0141_2' %}">question post page</a></div>
+<div><a href="{% url 'ky_0141_pdf' %}">Presentation file</a></div>
+</div>
+{% endblock %}
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -7,5 +19,6 @@
     <div style="position: absolute;top: 50%;left: 50%; margin: 1em 0 0 -5em;">
       This is index page.
     </div>
+<div> <a href="{%url 'ky_0141_2' %}">question post page</a></div>
   </body>
-</html>
+</html> -->
